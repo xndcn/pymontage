@@ -1,0 +1,9 @@
+#version 330
+
+in vec2 vertex;
+out vec2 vTexCoord;
+
+void main() {
+    gl_Position = vec4(vertex, 0.0, 1.0);
+    vTexCoord = vec2((vertex.x - 1.0) / 2.0, (vertex.y - 1.0) / 2.0);
+}

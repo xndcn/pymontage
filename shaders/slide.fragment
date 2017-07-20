@@ -1,0 +1,17 @@
+#version 330
+
+uniform sampler2D sTexture;
+uniform float fraction;
+in vec2 vTexCoord;
+out vec4 output_color;
+
+void main() {
+    vec3 color = texture2D(sTexture, vTexCoord).rgb;
+    float alpha = 1.0;
+    if (fraction > 0) {
+        if (vTexCoord.x < -fraction) {
+            alpha = 0.0;
+        }
+    }
+    output_color = vec4(color, alpha);
+}
